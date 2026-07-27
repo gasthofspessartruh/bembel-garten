@@ -2,51 +2,44 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bembelgarten Steiger</title>
 
 <!-- GitHub Pages liefert diese Datei fuer jeden Pfad aus, den es hier nicht
      gibt. Da es hier ausser der Startseite nichts gibt, landet also jeder
-     Aufruf wie /speisekarte oder /en/ hier. Das Skript unten haengt den
-     angefragten Pfad an die Zieladresse an, damit
+     Aufruf wie /speisekarte oder /en/ hier.
+
+     Das Skript steht bewusst ganz oben: der Browser fuehrt es beim Parsen
+     sofort aus und springt weiter, bevor er Stylesheet und Body ueberhaupt
+     liest. Es haengt den angefragten Pfad an die Zieladresse an, damit
      bembel-garten.de/speisekarte auch dort ankommt.
 
      Ohne JavaScript greift der meta-refresh und fuehrt zur Startseite. -->
-<meta http-equiv="refresh" content="1; url=https://bembelgarten-steiger.de/">
+<script>
+(function () {
+  var p = location.pathname || "/";
+  // Nur eigene Pfade uebernehmen, niemals eine fremde Adresse anhaengen.
+  if (p.charAt(0) !== "/" || p.indexOf("//") === 0) p = "/";
+  location.replace("https://bembelgarten-steiger.de" + p + location.search + location.hash);
+})();
+</script>
 
+<meta http-equiv="refresh" content="0; url=https://bembelgarten-steiger.de/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bembelgarten Steiger</title>
 <style>
-  html, body { height: 100%; }
-  body {
-    margin: 0;
-    display: grid;
-    place-items: center;
-    background: #f6f1e6;
-    color: #1d282c;
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    text-align: center;
-    padding: 1.5rem;
-  }
-  p { margin: 0; line-height: 1.6; }
-  .klein { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: #5b6a68; }
-  a { color: #1d282c; text-underline-offset: 0.2em; }
+  html,body{height:100%}
+  body{margin:0;display:grid;place-items:center;background:#f6f1e6;color:#1d282c;
+       font-family:system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:1.5rem}
+  p{margin:0;line-height:1.6}
+  .klein{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#5b6a68}
+  a{color:#1d282c;text-underline-offset:.2em}
 </style>
 </head>
 <body>
   <div>
     <p class="klein">Bembelgarten Steiger</p>
-    <p style="margin-top:0.6rem">
+    <p style="margin-top:.6rem">
       Weiter zu <a href="https://bembelgarten-steiger.de/">bembelgarten-steiger.de</a>
     </p>
   </div>
-
-  <script>
-    (function () {
-      var ziel = "https://bembelgarten-steiger.de";
-      var pfad = location.pathname || "/";
-      // Nur eigene Pfade uebernehmen, niemals eine fremde Adresse anhaengen.
-      if (pfad.charAt(0) !== "/" || pfad.indexOf("//") === 0) pfad = "/";
-      location.replace(ziel + pfad + location.search + location.hash);
-    })();
-  </script>
 </body>
 </html>

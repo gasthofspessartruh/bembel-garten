@@ -2,44 +2,31 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
+
+<!-- Zuerst das Skript, noch vor allem anderen. Der Browser fuehrt es beim
+     Parsen sofort aus und springt weiter, bevor er den Rest des Dokuments
+     ueberhaupt liest. Alles darunter sieht nur, wer kein JavaScript hat. -->
+<script>location.replace("https://bembelgarten-steiger.de/")</script>
+
+<meta http-equiv="refresh" content="0; url=https://bembelgarten-steiger.de/">
+<link rel="canonical" href="https://bembelgarten-steiger.de/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bembelgarten Steiger</title>
-
-<!-- Diese Domain ist nur eine Kurzadresse. Sie leitet auf die eigentliche
-     Seite weiter. Das canonical sagt Suchmaschinen, welche der beiden
-     Adressen die richtige ist, damit nicht zwei Seiten konkurrieren. -->
-<link rel="canonical" href="https://bembelgarten-steiger.de/">
-<meta http-equiv="refresh" content="0; url=https://bembelgarten-steiger.de/">
-
 <style>
-  html, body { height: 100%; }
-  body {
-    margin: 0;
-    display: grid;
-    place-items: center;
-    background: #f6f1e6;
-    color: #1d282c;
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    text-align: center;
-    padding: 1.5rem;
-  }
-  p { margin: 0; line-height: 1.6; }
-  .klein { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: #5b6a68; }
-  a { color: #1d282c; text-underline-offset: 0.2em; }
+  html,body{height:100%}
+  body{margin:0;display:grid;place-items:center;background:#f6f1e6;color:#1d282c;
+       font-family:system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:1.5rem}
+  p{margin:0;line-height:1.6}
+  .klein{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#5b6a68}
+  a{color:#1d282c;text-underline-offset:.2em}
 </style>
 </head>
 <body>
   <div>
     <p class="klein">Bembelgarten Steiger</p>
-    <p style="margin-top:0.6rem">
+    <p style="margin-top:.6rem">
       Weiter zu <a href="https://bembelgarten-steiger.de/">bembelgarten-steiger.de</a>
     </p>
   </div>
-
-  <script>
-    // Sofort weiter, ohne einen Eintrag im Verlauf zu hinterlassen.
-    // Der Zurück-Knopf springt dadurch nicht in die Weiterleitung zurueck.
-    location.replace("https://bembelgarten-steiger.de/");
-  </script>
 </body>
 </html>
